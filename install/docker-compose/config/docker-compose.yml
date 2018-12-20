@@ -1,0 +1,15 @@
+version: '2.1' #docker-compose.yml
+services:
+  jenkins:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    privileged: true
+    user: root
+    ports:
+      - 8080:8080
+      - 50000:50000
+    container_name: jenkins
+    volumes:
+      - /home/arom/tmp/jenkins-data:/var/jenkins_home:Z #Remember that, the tmp directory is designed to be wiped on system reboot.
+      - /home/arom/var/run/docker.sock:/var/run/docker.sock:Z
