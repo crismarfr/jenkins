@@ -1,0 +1,10 @@
+node {
+
+    stage('Initialize'){
+ 
+    }
+
+    stage('Checkout') {
+        checkout scm
+    }
+}
