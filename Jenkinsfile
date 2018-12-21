@@ -5,7 +5,14 @@ pipeline {
     stages {
 	
 		stage('Checkout') {
-		checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/crismarfr/microservices.git']]])
+		checkout(
+			[$class: 'GitSCM',
+			branches: [[name: '*/master']],
+			doGenerateSubmoduleConfigurations: false,
+			extensions: [],
+			submoduleCfg: [],
+			userRemoteConfigs: [[url: 'https://github.com/crismarfr/microservices.git']]
+			])
 		}
 	
         stage('Build') {
