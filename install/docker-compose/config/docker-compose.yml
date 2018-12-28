@@ -13,3 +13,13 @@ services:
     volumes:
       - /home/arom/tmp/jenkins-data:/var/jenkins_home:Z #Remember that, the tmp directory is designed to be wiped on system reboot.
       - /var/run/docker.sock:/var/run/docker.sock:Z
+    networks:
+      - my_net
+      - docker-compose_main
+networks:
+    my_net:
+        driver: bridge
+        name: my_net
+    docker-compose_main:
+        driver: bridge
+        name: docker-compose_main
